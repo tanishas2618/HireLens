@@ -74,7 +74,7 @@ if uploaded_file is not None:
 
     st.subheader("❌ Missing Skills")
     for skill in missing_skills[:8]:
-    st.write(f"❌ {skill}")
+        st.write(f"❌ {skill}")
 
     # 🔹 Suggestions
     st.subheader("🧠 Suggestions")
