@@ -45,7 +45,7 @@ if uploaded_file is not None:
 
     st.subheader("💡 Detected Skills")
     for skill in found_skills:
-    st.write(f"✅ {skill}")
+        st.write(f"✅ {skill}")
 
     # 🔹 Job Description Input
     job_description = st.text_area("📌 Paste Job Description Here")
