@@ -3,7 +3,10 @@ import pdfplumber
 import re
 
 # Title
-st.title("🤖 HireLens - AI Resume Analyzer")
+st.set_page_config(page_title="HireLens", page_icon="🤖")
+
+st.markdown("<h1 style='text-align: center;'>🤖 HireLens</h1>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: center;'>AI Resume Analyzer</p>", unsafe_allow_html=True)
 st.write("Upload your resume and analyze your skills!")
 
 # Upload Resume
@@ -41,7 +44,8 @@ if uploaded_file is not None:
             found_skills.append(skill)
 
     st.subheader("💡 Detected Skills")
-    st.write(found_skills)
+    for skill in found_skills:
+    st.write(f"✅ {skill}")
 
     # 🔹 Job Description Input
     job_description = st.text_area("📌 Paste Job Description Here")
@@ -69,18 +73,11 @@ if uploaded_file is not None:
             missing_skills.append(skill)
 
     st.subheader("❌ Missing Skills")
-    st.write(missing_skills)
+    for skill in missing_skills[:8]:
+    st.write(f"❌ {skill}")
 
     # 🔹 Suggestions
     st.subheader("🧠 Suggestions")
 
-    if "html" not in found_skills:
-        st.write("👉 Consider adding HTML skills")
-    if "css" not in found_skills:
-        st.write("👉 Consider adding CSS skills")
-    if "javascript" not in found_skills:
-        st.write("👉 Consider adding JavaScript")
-    if "react" not in found_skills:
-        st.write("👉 Consider learning React")
-    if "projects" not in clean_text.lower():
-        st.write("👉 Add more projects to strengthen your resume")
+    for skill in missing_skills[:5]:
+        st.write(f"👉 Consider learning {skill}")
