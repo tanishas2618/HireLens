@@ -54,8 +54,12 @@ if uploaded_file is not None:
 
         score = (len(matched_words) / len(set(jd_words))) * 100
 
-        st.subheader("📊 ATS Score")
-        st.write(f"{score:.2f}%")
+        if score > 70:
+            st.success(f"📊 ATS Score: {score:.2f}% - Strong Match ✅")
+        elif score > 40:
+            st.warning(f"📊 ATS Score: {score:.2f}% - Medium Match ⚠️")
+        else:
+            st.error(f"📊 ATS Score: {score:.2f}% - Weak Match ❌")
 
     # 🔹 Missing Skills
     missing_skills = []
